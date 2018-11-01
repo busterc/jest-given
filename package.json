@@ -1,0 +1,99 @@
+{
+  "name": "jest-given",
+  "description": "Consistently readable test descriptions for Jest",
+  "license": "ISC",
+  "author": "Buster Collings <busterc@gmail.com>",
+  "repository": "busterc/jest-given",
+  "version": "0.0.0",
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "precommit": "lint-staged",
+    "pretest": "eslint .",
+    "test": "jest --coverage --verbose"
+  },
+  "devDependencies": {
+    "coveralls": "^3.0.0",
+    "eslint": "^5.8.0",
+    "eslint-config-prettier": "^3.0.1",
+    "eslint-config-xo": "^0.25.0",
+    "eslint-plugin-json": "^1.2.1",
+    "eslint-plugin-prettier": "^3.0.0",
+    "husky": "^1.1.2",
+    "jest": "^23.5.0",
+    "lint-staged": "^8.0.4",
+    "prettier": "^1.11.1",
+    "prettier-package-json": "^2.0.1"
+  },
+  "keywords": [
+    "describe",
+    "description",
+    "expect",
+    "given",
+    "it",
+    "jest",
+    "readable",
+    "should",
+    "test",
+    "tests"
+  ],
+  "engines": {
+    "npm": ">= 4.0.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "xo",
+      "prettier"
+    ],
+    "env": {
+      "jest": true,
+      "node": true
+    },
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "singleQuote": true,
+          "printWidth": 90
+        }
+      ]
+    },
+    "plugins": [
+      "prettier",
+      "json"
+    ]
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "projects": [
+      {
+        "testMatch": [
+          "<rootDir>/lib/__tests__/*.js"
+        ]
+      },
+      {
+        "testMatch": [
+          "<rootDir>/lib/__tests__/withSetup/*.js"
+        ],
+        "setupTestFrameworkScriptFile": "<rootDir>/lib/setup"
+      }
+    ]
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.json": [
+      "prettier --write",
+      "git add"
+    ],
+    "package.json": [
+      "prettier-package-json --write",
+      "git add"
+    ]
+  },
+  "reveal": true
+}
