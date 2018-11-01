@@ -90,7 +90,7 @@ the same API as `given()` however, it's description is simplified for clarity.
 
 - ### `as(what [, nest])`
 
-## Setup using `setupTestFrameworkScriptFile` Jest configuration
+## Optional Setup: using `setupTestFrameworkScriptFile` Jest configuration
 
 Add `jest-given` to your Jest `setupTestFrameworkScriptFile` configuration. [See for help](https://facebook.github.io/jest/docs/en/configuration.html#setuptestframeworkscriptfile-string)
 
